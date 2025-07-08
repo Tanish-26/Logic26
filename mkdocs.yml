@@ -1,0 +1,67 @@
+site_name: Logic26
+
+nav:
+  - Home: index.md
+ 
+  - Blogs:
+      - "Hunting for Firebase Enums in Android Application": Blogs/insecure_firebase_blog.md
+      - "Exploit Security IOT CTF": Blogs/EXPLOIT_SECURITY_IoT_CTF.md
+      - "Introduction to Insecure Deserilazation": Blogs/Introduction-to-Insecure-Deserialization.md
+      - "PortSwigger Insecure Deseleraization Part 1": Blogs/PortSwigger-Insecure-Deseleraization-Part-1.md
+      - "PortSwigger Insecure Deseleraization Part 2": Blogs/PortSwigger-Insecure-Deseleraization-Part-2.md
+  - CTF Writeups:
+      - HackTheBox:
+          - "Photon Lockdown": CTF/Hackthebox_Photonlocakdown.md
+          - "Needle": CTF/Hackthebox_The_Needle.md
+          - "Behind The Scenes": CTF/HackTheBox-Behind-the-Scenes.md
+          - "Cat": CTF/HackTheBox-Cat.md
+          - "Debbing Interface": CTF/HackTheBox-Debugging-Interface.md
+          - "Jscalc": CTF/HackTheBox-Jscalc.md
+          - "RFlag": CTF/HackTheBox-RFlag.md
+          - "Signals": CTF/HackTheBox-Signals.md
+          - "Topology": CTF/HackTheBox-Topology.md 
+          - "Toxic":  CTF/HackTheBox-Toxic.md
+          - "LoveTok": CTF/HackTheBox-LoveTok.md
+          - "Analytics": CTF/HackTheBox-Analytics.md
+          - "Weather App": CTF/HackTheBox-Weather-App.md
+          - "M0rsarchive": CTF/HackTheBox-M0rsarchive.md
+          - "RenderQuest": CTF/HackTheBox-RenderQuest.md
+          - "Illumination": CTF/HackTheBox-Illumination.md
+          - "Canva": CTF/HackTheBox-Canvas.md
+      - Tryhackme:
+          - "Bounty-Hunter": CTF/TryHackMe-Bounty-Hunter.md 
+          - "Brooklyn-Nine-Nine": CTF/TryHackMe-Brooklyn-Nine-Nine.md 
+          - "Committed": CTF/TryHackMe-Committed.md 
+          - "Git-Happens": CTF/TryHackMe-Git-Happens.md 
+          - "Grep": CTF/TryHackMe-Grep.md 
+          - "HeartBleed": CTF/TryHackMe-HeartBleed.md 
+          - "Pickle Rick": CTF/TryHackMe-Pickle-Rick.md 
+          - "TakeOver": CTF/TryHackMe-TakeOver.md 
+          - "TomGhost": CTF/TryHackMe-TomGhost.md
+
+
+theme:
+  name: material
+  font:
+    code: Roboto Mono
+  palette:
+    scheme: slate
+    primary: green
+    accent: red
+  features:
+    - navigation.footer
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true 
+  - pymdownx.superfences
+  - pymdownx.snippets
+  - pymdownx.inlinehilite
+  - admonition
+  - pymdownx.details
+
+extra:
+  social:
+    - icon: simple/linkedin
+      link: https://www.linkedin.com/in/tanish-saxena-9188721a1/
