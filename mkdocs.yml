@@ -61,7 +61,3 @@ markdown_extensions:
   - admonition
   - pymdownx.details
 
-extra:
-  social:
-    - icon: simple/linkedin
-      link: https://www.linkedin.com/in/tanish-saxena-9188721a1/
