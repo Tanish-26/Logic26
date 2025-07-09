@@ -1,4 +1,6 @@
 site_name: Logic26
+site_url: https://tanish-26.github.io/Logic26/
+use_directory_urls: true
 
 nav:
   - Home: index.md
@@ -60,4 +62,8 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - admonition
   - pymdownx.details
+
+extra:
+  base_url: /Logic26/
+
 
