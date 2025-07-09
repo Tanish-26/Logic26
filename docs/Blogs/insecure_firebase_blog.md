@@ -21,7 +21,7 @@ I felt… betrayed 😅
   <img src="docs/assets//1_9irSLF5ztrsUTGHbhTSJow.gif" alt="My SVG Logo" width="400">
 
 
-![svg](assets/1_9irSLF5ztrsUTGHbhTSJow.gif)
+![svg](docs/assets/1_9irSLF5ztrsUTGHbhTSJow.gif)
 
 
 ---
