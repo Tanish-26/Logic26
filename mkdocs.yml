@@ -50,9 +50,9 @@ theme:
     scheme: slate
     primary: green
     accent: red
-plugins:
-  - search
-  - macros
+    plugins:
+      - search
+      - macros
   features:
     - navigation.footer
 markdown_extensions:
