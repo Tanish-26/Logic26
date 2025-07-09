@@ -18,6 +18,8 @@ I felt… betrayed 😅
 <div style="text-align: center;">
   <img src="assets/1_9irSLF5ztrsUTGHbhTSJow.gif" alt="My SVG Logo" width="400">
 </div>
+  <img src="assets/1_9irSLF5ztrsUTGHbhTSJow.gif" alt="My SVG Logo" width="400">
+
 
 ![svg](assets/1_9irSLF5ztrsUTGHbhTSJow.gif)
 
