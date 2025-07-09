@@ -16,7 +16,7 @@ These misconfigurations are commonly found in Android apps. Although the chances
 I felt… betrayed 😅    
 
 <div style="text-align: center;">
-  <img src="/assets/1_9irSLF5ztrsUTGHbhTSJow.gif" alt="My SVG Logo" width="400">
+  <img src="assets/1_9irSLF5ztrsUTGHbhTSJow.gif" alt="My SVG Logo" width="400">
 </div>
 
 ---
