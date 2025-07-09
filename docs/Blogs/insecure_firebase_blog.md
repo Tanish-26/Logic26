@@ -19,6 +19,9 @@ I felt… betrayed 😅
   <img src="assets/1_9irSLF5ztrsUTGHbhTSJow.gif" alt="My SVG Logo" width="400">
 </div>
 
+![svg](assets/1_9irSLF5ztrsUTGHbhTSJow.gif)
+
+
 ---
 
 ## Why This Blog?
