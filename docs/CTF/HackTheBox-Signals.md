@@ -1,10 +1,6 @@
 # HackTheBox Signals
 
-<div style="text-align: center;">
-  <img src="/assets/signals1.webp" alt="mannaully
-" width="600">
-</div>
-
+![Open Lightbox](../assets/signals1.webp){ .glightbox .center width="600" }
 ```
 HTB-Challenges:- Hardware
 Challenge Info:- Decoding Wav signals
@@ -18,33 +14,22 @@ We need 3 things.
 
 Now we need to install vb-audio virtual cable.
 
-<div style="text-align: center;">
-  <img src="/assets/signals2.webp" alt="mannaully
-" width="550">
-</div>
+![Open Lightbox](../assets/signals2.webp){ .glightbox .center width="500" }
+
 
 And configure it in the vlc player.
 
-<div style="text-align: center;">
-  <img src="/assets/signals3.webp" alt="mannaully
-" width="550">
-</div>
+![Open Lightbox](../assets/signals3.webp){ .glightbox .center width="500" }
 
 Like shown in the above picture.
 
 Then configure sstv or mmstv.
 
-<div style="text-align: center;">
-  <img src="/assets/signals4.webp" alt="mannaully
-" width="550">
-</div>
+![Open Lightbox](../assets/signals4.webp){ .glightbox .center width="500" }
 
 And now start the audio from vlc and wait untill it reveals the flag.
 
-<div style="text-align: center;">
-  <img src="/assets/signals5.webp" alt="mannaully
-" width="500">
-</div>
+![Open Lightbox](../assets/signals5.webp){ .glightbox .center width="500" }
 
 Thank you for reading
 

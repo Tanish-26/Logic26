@@ -1,9 +1,6 @@
 # TryHackMe HeartBleed
 
-<div style="text-align: center;">
-  <img src="/assets/HeartBleed1.webp" alt="mannaully
-" width="600">
-</div>
+![Open Lightbox](../assets/HeartBleed1.webp){ .glightbox .center width="600" }
 ```
 TryhackMe Machine:- HeartBleed
 Machine Info:- SSL
@@ -110,10 +107,7 @@ I started nmap scan.
 
 So you will see alot of noice in the nmap scan but we will stick to the title and here we will use metasploit to exploit the vulnerablity.
 
-<div style="text-align: center;">
-  <img src="/assets/HeartBleed2.webp" alt="mannaully
-" width="550">
-</div>
+![Open Lightbox](../assets/HeartBleed2.webp){ .glightbox .center width="500" }
 
 We will use auxiliary/scanner/ssl/openssl_heartbleed.
 
@@ -122,10 +116,7 @@ Now to use the auxiliary just enter <use 2> it will be automatically selected.
 Now firstly set these parameters.
 RHOSTS [IP] Verbose True Set Action scan and then run the.
 
-<div style="text-align: center;">
-  <img src="/assets/HeartBleed3 .webp" alt="mannaully
-" width="550">
-</div>
+![Open Lightbox](../assets/HeartBleed3 .webp){ .glightbox .center width="500" }
 
 If you read this carefullly you will see the flag.
 

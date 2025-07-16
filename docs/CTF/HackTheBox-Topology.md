@@ -1,9 +1,6 @@
 # HackTheBox Topology
 
-<div style="text-align: center;">
-  <img src="/assets/topology1.webp" alt="mannaully
-" width="600">
-</div>
+![Open Lightbox](../assets/topology1.webp){ .glightbox .center width="600" }
 
 Started the machine got the IP address and started an Nmap scan
 
@@ -17,23 +14,12 @@ looked into the page source and found another link.
 
 latex.topology.htb
 
-<div style="text-align: center;">
-  <img src="/assets/topology02.png" alt="mannaully
-" width="600">
-</div>
 
-
-<div style="text-align: center;">
-  <img src="/assets/topology2.webp" alt="mannaully
-" width="600">
-</div>
+![Open Lightbox](../assets/topology2.webp){ .glightbox .center width="500" }
 
 And got a page which converted whatever text we put into png and reflect it back.
 
-<div style="text-align: center;">
-  <img src="/assets/topology3.webp" alt="mannaully
-" width="600">
-</div>
+![Open Lightbox](../assets/topology3.webp){ .glightbox .center width="500" }
 
 So i looked around a bit about this and found that there can be an Latex injection.
 
@@ -46,10 +32,7 @@ I used the following injection first to check what comes back.
 $\lstinputlisting{/etc/passwd}
 ```
 
-<div style="text-align: center;">
-  <img src="/assets/topology4.webp" alt="mannaully
-" width="600">
-</div>
+![Open Lightbox](../assets/topology4.webp){ .glightbox .center width="500" }
 
 And it reflected back with this after that I used another payload.
 
@@ -62,10 +45,7 @@ And it worked I got the /var/www/dev/.htaccess file and its content and found a 
 
 Used it to login vai ssh.
 
-<div style="text-align: center;">
-  <img src="/assets/topology5.webp" alt="mannaully
-" width="600">
-</div>
+![Open Lightbox](../assets/topology5.webp){ .glightbox .center width="500" }
 
 And we got a shell.
 
@@ -73,10 +53,8 @@ Now in the to get the root access i used pspy64 and uploaded it with a local pyt
 
 <https://github.com/DominicBreuker/pspy/releases/tag/v1.2.1?source=post_page-----99b485c380dc-------------------------------->
 
-<div style="text-align: center;">
-  <img src="/assets/topology6.webp" alt="mannaully
-" width="600">
-</div>
+
+![Open Lightbox](../assets/topology6.webp){ .glightbox .center width="500" }
 
 Now i used
 ```bash
@@ -96,11 +74,7 @@ As soon it becomes root run the following command.
 /bin/bash -p
 ```
 
-<div style="text-align: center;">
-  <img src="/assets/topology7.webp" alt="mannaully
-" width="600">
-</div>
-
+![Open Lightbox](../assets/topology7.webp){ .glightbox .center width="500" }
 And we got the root shell and the root flag.
 
 Thank you for reading.

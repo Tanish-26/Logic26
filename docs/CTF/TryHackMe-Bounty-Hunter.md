@@ -1,10 +1,7 @@
 # TryHackMe Bounty Hunter
 
-<div style="text-align: center;">
-  <img src="/assets/bounty_hunter1.webp" alt="mannaully
-" width="600">
-</div>
 
+![Open Lightbox](../assets/bounty_hunter1.webp){ .glightbox .center width="600" }
 ```
 TryhackMe Machine:- Bounty Hunter
 Machine Info:- 
@@ -137,16 +134,10 @@ just run the following command.
 sudo tar -cf /dev/null /dev/null - checkpoint=1 - checkpoint-action=exec=/bin/sh
 ```
 
-<div style="text-align: center;">
-  <img src="/assets/bounty_hunter2.webp" alt="mannaully
-" width="500">
-</div>
+![Open Lightbox](../assets/bounty_hunter2.webp){ .glightbox .center width="500" }
 Now we have a root access you can see by typing :- sudo -l.
 
 And got the root access and the root flag.
 
-<div style="text-align: center;">
-  <img src="/assets/bounty_hunter3.webp" alt="mannaully
-" width="500">
-</div>
+![Open Lightbox](../assets/bounty_hunter3.webp){ .glightbox .center width="500" }
 Thank you for reading

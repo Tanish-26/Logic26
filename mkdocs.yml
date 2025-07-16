@@ -50,7 +50,13 @@ theme:
     accent: red
   features:
     - navigation.footer
+
+plugins:
+  - search
+  - glightbox
+
 markdown_extensions:
+  - attr_list
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
@@ -61,7 +67,5 @@ markdown_extensions:
   - admonition
   - pymdownx.details
 
-extra:
-  social:
-    - icon: simple/linkedin
-      link: https://www.linkedin.com/in/tanish-saxena-9188721a1/
+extra_css:
+  - stylesheets/extra.css

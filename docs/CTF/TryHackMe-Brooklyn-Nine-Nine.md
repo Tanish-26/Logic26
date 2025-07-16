@@ -1,9 +1,7 @@
 # TryHackMe Brooklyn Nine-Nine
 
-<div style="text-align: center;">
-  <img src="/assets/Brooklyn-Nine-Nine1.webp" alt="mannaully
-" width="500">
-</div>
+
+![Open Lightbox](../assets/Brooklyn-Nine-Nine1.webp){ .glightbox .center width="500" }
 ```
 TryhackMe Machine:- Brooklyn Nine Nine
 Machine Info:- pwn
@@ -15,10 +13,7 @@ Machine Level:- Easy
 
 On visiting the given IP you will see a simple page with an image.
 
-<div style="text-align: center;">
-  <img src="/assets/Brooklyn-Nine-Nine2.webp" alt="mannaully
-" width="600">
-</div>
+![Open Lightbox](../assets/Brooklyn-Nine-Nine2.webp){ .glightbox .center width="500" }
 
 On checking the page source, I didn't find anything.
 
@@ -31,10 +26,7 @@ I did an Nmap scan.
 
 And port 21 ftp was open and I tried anonymous login on it and got in and found a txt file and pulled it out.
 
-<div style="text-align: center;">
-  <img src="/assets/Brooklyn-Nine-Nine3.webp" alt="mannaully
-" width="600">
-</div>
+![Open Lightbox](../assets/Brooklyn-Nine-Nine3.webp){ .glightbox .center width="500" }
 
 And found a message from Amy to Jake telling him that his password is weak now let's try fuzzing the password of jake using hydra.
 
@@ -42,26 +34,17 @@ And found a message from Amy to Jake telling him that his password is weak now l
 hydra hydra -l jake -P rockyou.txt ssh://10.10.214.64 ssh -t 4
 ```
 
-<div style="text-align: center;">
-  <img src="/assets/Brooklyn-Nine-Nine4.webp" alt="mannaully
-" width="600">
-</div>
+![Open Lightbox](../assets/Brooklyn-Nine-Nine4.webp){ .glightbox .center width="500" }
 
 And successfully logged in as jake also got the user flag inside holt.
 
-<div style="text-align: center;">
-  <img src="/assets/Brooklyn-Nine-Nine5.webp" alt="mannaully
-" width="600">
-</div>
+![Open Lightbox](../assets/Brooklyn-Nine-Nine5.webp){ .glightbox .center width="500" }
 
 Privilege Escalation
 
 Used the simplest thing a CTF mostly have, the easy level ones have is to check using Sudo -l and as expected you will see.
 
-<div style="text-align: center;">
-  <img src="/assets/Brooklyn-Nine-Nine6.webp" alt="mannaully
-" width="600">
-</div>
+![Open Lightbox](../assets/Brooklyn-Nine-Nine6.webp){ .glightbox .center width="500" }
 
 On checking on https://gtfobins.github.io/ found a method.
 
@@ -69,16 +52,10 @@ On checking on https://gtfobins.github.io/ found a method.
 sudo less /etc/profile !/bin/bash
 ```
 
-<div style="text-align: center;">
-  <img src="/assets/Brooklyn-Nine-Nine7.webp" alt="mannaully
-" width="600">
-</div>
+![Open Lightbox](../assets/Brooklyn-Nine-Nine7.webp){ .glightbox .center width="500" }
 
 And we got the root user and the final flag.
 
-<div style="text-align: center;">
-  <img src="/assets/Brooklyn-Nine-Nine88.webp" alt="mannaully
-" width="600">
-</div>
+![Open Lightbox](../assets/Brooklyn-Nine-Nine88.webp){ .glightbox .center width="500" }
 
 Thanks you for Reading

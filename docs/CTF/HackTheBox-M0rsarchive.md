@@ -1,9 +1,7 @@
 # HackTheBox M0rsarchive
 
-<div style="text-align: center;">
-  <img src="/assets/M0rsarchive1.webp" alt="mannaully
-" width="550">
-</div>
+![Open Lightbox](../assets/M0rsarchive1.webp){ .glightbox .center width="600" }
+
 ```
 HTB-Challenges:- Mics  
 Challenge Info:- Mics cipher based  
@@ -19,10 +17,7 @@ basically, I had to open 997 more files then I started looking for scripts that 
 
 But firstly when you unzip the file you will find 2 files pwd.png and flag\_999.zip
 
-<div style="text-align: center;">
-  <img src="/assets/M0rsarchive2.webp" alt="mannaully
-" width="550">
-</div>
+![Open Lightbox](../assets/M0rsarchive2.webp){ .glightbox .center width="500" }
 
 Now to unzip the flag\_999.zip you need to open the pwd.png image and crack the morse code And use that cracked code to unzip the file
 
@@ -30,22 +25,13 @@ Just for sake let me show how it will be done manually but we are not going to d
 
 We open the pwd.png file first
 
-<div style="text-align: center;">
-  <img src="/assets/M0rsarchive3.webp" alt="mannaully
-" width="550">
-</div>
+![Open Lightbox](../assets/M0rsarchive3.webp){ .glightbox .center width="500" }
 Then used an online Morse code translator to decode the Cipher text
 
-<div style="text-align: center;">
-  <img src="/assets/M0rsarchive4.webp" alt="mannaully
-" width="550">
-</div>
+![Open Lightbox](../assets/M0rsarchive4.webp){ .glightbox .center width="500" }
 This means the answer is 9 to unzip the file and we will be successful to unzip it
 
-<div style="text-align: center;">
-  <img src="/assets/M0rsarchive5.webp" alt="mannaully
-" width="550">
-</div>
+![Open Lightbox](../assets/M0rsarchive5.webp){ .glightbox .center width="500" }
 Now the script we are going to use is going to take the image read the morse code from the PNG file unzip the file and continue this loop until we reach the last file
 
 
@@ -141,16 +127,10 @@ if \_\_name\_\_ == "\_\_main\_\_":
 ```
 Now let’s use this script to unzip the files
 
-<div style="text-align: center;">
-  <img src="/assets/M0rsarchive6.webp" alt="mannaully
-" width="550">
-</div>
+![Open Lightbox](../assets/M0rsarchive6.webp){ .glightbox .center width="500" }
 
-<div style="text-align: center;">
-  <img src="/assets/M0rsarchive7.webp" alt="mannaully
-" width="550">
-</div>
 
+![Open Lightbox](../assets/M0rsarchive7.webp){ .glightbox .center width="500" }
 And we got the Flag
 
 Thank you for reading

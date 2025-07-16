@@ -1,9 +1,7 @@
 # HackTheBox Photon Lockdown
 
-<div style="text-align: center;">
-  <img src="/assets/htb_photonld.webp" alt="mannaully
-" width="700">
-</div>
+![Open Lightbox](../assets/htb_photonld.webp){ .glightbox .center width="700" }
+
 
 ```
 HTB-Challenges:- Hardware
@@ -23,9 +21,7 @@ contain hardcoded credentials. Can you extract the password from it?
 
 As you uzip the file you will see 3 more files.
 
-<div style="text-align: center;">
-  <img src="/assets/htb_pld1.webp" alt="mannaully" width="550">
-</div>
+![Open Lightbox](../assets/htb_pld1.webp){ .glightbox .center width="500" }
 
 
 Now fwu_ver contains some version details of the frimware i guess.
@@ -45,26 +41,18 @@ So we can use squashfs utility here to be specific unsquashfs which will extract
 ```bash
 sudo unsquashfs rootfs
 ```
-<div style="text-align: center;">
-  <img src="/assets/htb_pld2.webp" alt="mannaully
-" width="700">
-</div>
+
+![Open Lightbox](../assets/htb_pld2.webp){ .glightbox .center width="500" }
 
 
 Now we can explore squashfs-root folder.
 
-<div style="text-align: center;">
-  <img src="/assets/htb_pld3.webp" alt="mannaully
-" width="700">
-</div>
+![Open Lightbox](../assets/htb_pld3.webp){ .glightbox .center width="500" }
 
 
 Now i looked around abit and in the /home directory.
 
-<div style="text-align: center;">
-  <img src="/assets/htb_pld4.webp" alt="mannaully
-" width="700">
-</div>
+![Open Lightbox](../assets/htb_pld4.webp){ .glightbox .center width="500" }
 
 
 So i know all config file are in /etc folder so i looked in the /etc and stared looking into files for HTB flag
@@ -81,15 +69,12 @@ And in the config_default.xml finally found the flag.
 
 
 Using the command.
-<div style="text-align: center;">
-  <img src="/assets/htb_pld5.webp" alt="mannaully
-" width="700">
-</div>
+
+![Open Lightbox](../assets/htb_pld5.webp){ .glightbox .center width="500" }
+
 ---
-<div style="text-align: center;">
-  <img src="/assets/htb_pld6.webp" alt="mannaully
-" width="700">
-</div>
+
+![Open Lightbox](../assets/htb_pld6.webp){ .glightbox .center width="500" }
 
 And got the flag.
 

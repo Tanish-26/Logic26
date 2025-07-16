@@ -1,9 +1,7 @@
 # TryHackMe TomGhost
 
-<div style="text-align: center;">
-  <img src="/assets/tomghost1.webp" alt="mannaully
-" width="600">
-</div>
+![Open Lightbox](../assets/tomghost1.webp){ .glightbox .center width="600" }
+
 ```
 TryhackMe Machine:- Tomghost
 Machine Info:- (CVE-2020–1938)
@@ -41,43 +39,29 @@ And yes it is reachable.
 python3 ajpShooter.py http://10.10.59.201:8080 8009 /WEB-INF/web.xml read
 ```
 
-<div style="text-align: center;">
-  <img src="/assets/tomghost2.webp" alt="mannaully
-" width="550">
-</div>
+![Open Lightbox](../assets/tomghost2.webp){ .glightbox .center width="500" }
+
 Okay so we have got a user name skyf… and something which looks like a password so lets try using it to ssh.
 
-<div style="text-align: center;">
-  <img src="/assets/tomghost3.webp" alt="mannaully
-" width="550">
-</div>
+![Open Lightbox](../assets/tomghost3.webp){ .glightbox .center width="500" }
+
 And we got in the server.
 
-<div style="text-align: center;">
-  <img src="/assets/tomghost4.webp" alt="mannaully
-" width="550">
-</div>
+![Open Lightbox](../assets/tomghost4.webp){ .glightbox .center width="500" }
 
 And we also got the first flag.
 
-<div style="text-align: center;">
-  <img src="/assets/tomghost5.webp" alt="mannaully
-" width="550">
-</div>
+![Open Lightbox](../assets/tomghost5.webp){ .glightbox .center width="500" }
+
 Also these two files tryhackme.asc and credential.pgp lets try to get this file.
 
-<div style="text-align: center;">
-  <img src="/assets/tomghost6.webp" alt="mannaully
-" width="550">
-</div>
+![Open Lightbox](../assets/tomghost6.webp){ .glightbox .center width="500" }
+
 And we got the file using scp.
 
 Also here i have to swtich to parrot os becoz for some gpg2john was not working.
 
-<div style="text-align: center;">
-  <img src="/assets/tomghost7.webp" alt="mannaully
-" width="550">
-</div>
+![Open Lightbox](../assets/tomghost7.webp){ .glightbox .center width="500" }
 
 Got the hash and carcked it using john and i got the password for merlin user lets try getting in vai ssh or just su user.
 
@@ -85,34 +69,24 @@ Now using the password i cracked i used it to decrypt both tryhackme.asc and cre
 
 And got the password for merlin.
 
-<div style="text-align: center;">
-  <img src="/assets/tomghost8.webp" alt="mannaully
-" width="550">
-</div>
+![Open Lightbox](../assets/tomghost8.webp){ .glightbox .center width="500" }
+
 Now again logged in as merlin.
 
-<div style="text-align: center;">
-  <img src="/assets/tomghost9.webp" alt="mannaully
-" width="550">
-</div>
+![Open Lightbox](../assets/tomghost9.webp){ .glightbox .center width="500" }
+
 Now will do privilege escalation.
 
-<div style="text-align: center;">
-  <img src="/assets/tomghost10.webp" alt="mannaully
-" width="550">
-</div>
+![Open Lightbox](../assets/tomghost10.webp){ .glightbox .center width="500" }
+
 So the /usr/bin/zip is a root folder now went straight to gto-bin.
 
 found this
 
-<div style="text-align: center;">
-  <img src="/assets/tomghost11.webp" alt="mannaully
-" width="550">
-</div>
+![Open Lightbox](../assets/tomghost11.webp){ .glightbox .center width="500" }
+
 We got the root shell and the final flag.
 
-<div style="text-align: center;">
-  <img src="/assets/tomghost12.webp" alt="mannaully
-" width="550">
-</div>
+![Open Lightbox](../assets/tomghost12.webp){ .glightbox .center width="500" }
+
 Thank you for reading

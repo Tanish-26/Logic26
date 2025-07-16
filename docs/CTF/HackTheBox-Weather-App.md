@@ -1,8 +1,6 @@
 # HackTheBox Weather App
-<div style="text-align: center;">
-  <img src="/assets/Weather_App1.webp" alt="mannaully
-" width="650">
-</div>
+
+![Open Lightbox](../assets/Weather_App1.webp){ .glightbox .center width="600" }
 ```
 HTB-Challenges:- Web
 Challenge Info:- Web-Application-based 
@@ -12,24 +10,15 @@ Challenge level:- Easy
 ---
 Firstly I downloaded the Necessary files to play the challenge. and started the machine.
 
-<div style="text-align: center;">
-  <img src="/assets/Weather_App2.webp" alt="mannaully
-" width="600">
-</div>
+![Open Lightbox](../assets/Weather_App2.webp){ .glightbox .center width="500" }
 
 Now I started looking manually into files I downloaded and on inspection in file a file package.js, that the node-js version was old and I compared it with the latest version which can be seen clearly,
 
-<div style="text-align: center;">
-  <img src="/assets/Weather_App3.webp" alt="mannaully
-" width="600">
-</div>
+![Open Lightbox](../assets/Weather_App3.webp){ .glightbox .center width="500" }
 
 Also there was a fake flag for testing
 
-<div style="text-align: center;">
-  <img src="/assets/Weather_App4.webp" alt="mannaully
-" width="600">
-</div>
+![Open Lightbox](../assets/Weather_App4.webp){ .glightbox .center width="500" }
 
 On analysing the index.js file in /web\_weather\_app/challenge/routes   
 found out that if you login as admin you will receive a flag otherwise,  
@@ -47,17 +36,11 @@ const response = data => ({ message: data });
 ```
 Also found API call /api/weather that fetches the weather info this is interesting we can try using different javascript event handlers here and try to fetch the flag or we can try something else.
 
-<div style="text-align: center;">
-  <img src="/assets/Weather_App5.webp" alt="mannaully
-" width="600">
-</div>
+![Open Lightbox](../assets/Weather_App5.webp){ .glightbox .center width="500" }
 
 I also did directory brute force just in case If i missed something.
 
-<div style="text-align: center;">
-  <img src="/assets/Weather_App6.webp" alt="mannaully
-" width="600">
-</div>
+![Open Lightbox](../assets/Weather_App6.webp){ .glightbox .center width="500" }
 
 We found /login and /register which were obvious to be found as we already looked in the login function index.js.
 
@@ -82,23 +65,14 @@ In my case, I’m using macOS so mac users use.
 ```bash
 sudo brew install node
 ```
-<div style="text-align: center;">
-  <img src="/assets/Weather_App7.webp" alt="mannaully
-" width="600">
-</div>
+![Open Lightbox](../assets/Weather_App7.webp){ .glightbox .center width="500" }
 
 Now open /login page and enter the credentials for the admin which is reset to admin:test
 
-<div style="text-align: center;">
-  <img src="/assets/Weather_App8.webp" alt="mannaully
-" width="600">
-</div>
 
+![Open Lightbox](../assets/Weather_App8.webp){ .glightbox .center width="500" }
 And we get the flag
 
-<div style="text-align: center;">
-  <img src="/assets/Weather_App9.webp" alt="mannaully
-" width="600">
-</div>
+![Open Lightbox](../assets/Weather_App9.webp){ .glightbox .center width="500" }
 
 Thank you for reading

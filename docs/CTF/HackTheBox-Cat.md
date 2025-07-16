@@ -1,9 +1,7 @@
 # HackTheBox Cat
 
-<div style="text-align: center;">
-  <img src="/assets/cat1.webp" alt="mannaully
-" width="600">
-</div>
+![Open Lightbox](../assets/cat1.webp){ .glightbox .center width="600" }
+
 ```
 HTB-Challenges:- Mobile
 Challenge Info:- Mobile based 
@@ -19,31 +17,20 @@ I started by downloading the necessary files Cat.zip file unzipped it and found 
 
 And found the following files inside.
 
-<div style="text-align: center;">
-  <img src="/assets/cat2.webp" alt="mannaully
-" width="600">
-</div>
+![Open Lightbox](../assets/cat2.webp){ .glightbox .center width="500" }
 
 So I opened and searched through the apps folder and did not find anything in it.
 
-<div style="text-align: center;">
-  <img src="/assets/cat3.webp" alt="mannaully
-" width="600">
-</div>
+![Open Lightbox](../assets/cat3.webp){ .glightbox .center width="500" }
 
 Then moved to another folder (shared) and there are 4 folders 3 of them were empty and one folder named Pictures Containers 6 Photos.
 
-<div style="text-align: center;">
-  <img src="/assets/cat4.webp" alt="mannaully
-" width="600">
-</div>
+![Open Lightbox](../assets/cat4.webp){ .glightbox .center width="500" }
 
 I opened each image but clearly, IMAG0004.jpg looked suspicious so I opened it.
 
-<div style="text-align: center;">
-  <img src="/assets/cat5.webp" alt="mannaully
-" width="600">
-</div>
+
+![Open Lightbox](../assets/cat5.webp){ .glightbox .center width="500" }
 
 Bottom of the top secret page.
 

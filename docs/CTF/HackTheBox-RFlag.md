@@ -1,10 +1,6 @@
 # HackTheBox RFlag
 
-<div style="text-align: center;">
-  <img src="/assets/rflag1.webp" alt="mannaully
-" width="550">
-</div>
-
+![Open Lightbox](../assets/rflag1.webp){ .glightbox .center width="600" }
 ```
 HTB-Challenges:- Hardware
 Challenge Info:- Decoding cf32 
@@ -40,11 +36,8 @@ rtl_433 -A signal.cf32
 
 Now carefully see this this seems like hex.
 
-<div style="text-align: center;">
-  <img src="/assets/rflag2.webp" alt="mannaully
-" width="550">
-</div>
 
+![Open Lightbox](../assets/rflag2.webp){ .glightbox .center width="500" }
 Im using cyberchef to decode this and i got the flag.
 
 Thank you for reading

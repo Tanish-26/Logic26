@@ -1,9 +1,7 @@
 # HackTheBox The Needle
 
-<div style="text-align: center;">
-  <img src="/assets/needle1.webp" alt="mannaully
-" width="600">
-</div>
+
+![Open Lightbox](../assets/needle1.webp){ .glightbox .center width="600" }
 
 ```
 HTB-Challenges:- Hardware
@@ -32,26 +30,19 @@ grep -rn "./" -e login
 
 Using this command found.
 
-<div style="text-align: center;">
-  <img src="/assets/needle2.webp" alt="mannaully
-" width="500">
-</div>
+![Open Lightbox](../assets/needle2.webp){ .glightbox .center width="500" }
 
 Got the username now moving to find the password and it is related to something related to sign so lets try find it using the following command.
 
 And found the password.
 
-<div style="text-align: center;">
-  <img src="/assets/needle3.webp" alt="mannaully
-" width="500">
-</div>
+![Open Lightbox](../assets/needle3.webp){ .glightbox .center width="500" }
+
 
 Now logging in using nc and the username and password we have:
 
-<div style="text-align: center;">
-  <img src="/assets/needle4.webp" alt="mannaully
-" width="500">
-</div>
+
+![Open Lightbox](../assets/needle4.webp){ .glightbox .center width="500" }
 
 And we also got the flag.
 

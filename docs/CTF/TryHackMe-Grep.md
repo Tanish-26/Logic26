@@ -1,9 +1,6 @@
 # TryHackMe Grep
 
-<div style="text-align: center;">
-  <img src="/assets/grep1.webp" alt="mannaully
-" width="600">
-</div>
+![Open Lightbox](../assets/grep1.webp){ .glightbox .center width="600" }
 
 ```
 TryhackMe Machine:- Grep
@@ -44,47 +41,27 @@ I added it grep.thm to /etc/hosts.
 
 And open again run the directory brute force attack.
 
-<div style="text-align: center;">
-  <img src="/assets/grep2.webp" alt="mannaully
-" width="550">
-</div>
+![Open Lightbox](../assets/grep2.webp){ .glightbox .center width="500" }
 The following were giving 200 so I visited /public/html/login.php/public/html/login.php/public/html/logout.php/public/html/register.php .
 
-<div style="text-align: center;">
-  <img src="/assets/grep3.webp" alt="mannaully
-" width="550">
-</div>
+
+![Open Lightbox](../assets/grep3.webp){ .glightbox .center width="500" }
 So I tried some default credentials and it didn’t work so I went to the registration page register a random user but it failed says.
 
 Captured the request in the burp suite and checked now maybe we have another API key somewhere.
 
 So I looked back at the index page it says SearchMe let’s search this on GitHub and hope to find something about there plus it is built using PHP so we have much more help in filtering.
 
-<div style="text-align: center;">
-  <img src="/assets/grep4.webp" alt="mannaully
-" width="550">
-</div>
+![Open Lightbox](../assets/grep4.webp){ .glightbox .center width="500" }
 And searched a bit more and found the user and also the API key in the history section in one of the file.
 
-<div style="text-align: center;">
-  <img src="/assets/grep5.webp" alt="mannaully
-" width="550">
-</div>
-
+![Open Lightbox](../assets/grep5.webp){ .glightbox .center width="500" }
 I edited the API key in the burp suite and again sent it and we successfully registered.
 
-<div style="text-align: center;">
-  <img src="/assets/grep6.webp" alt="mannaully
-" width="550">
-</div>
-
+![Open Lightbox](../assets/grep6.webp){ .glightbox .center width="500" }
 Now login as the new registered user.
 
-<div style="text-align: center;">
-  <img src="/assets/grep7.webp" alt="mannaully
-" width="550">
-</div>
-
+![Open Lightbox](../assets/grep7.webp){ .glightbox .center width="500" }
 And we got the first flag after we logged in.
 
 Again performed a directory brute force and found 1.
@@ -95,78 +72,45 @@ Again performed a directory brute force and found 1.
 
 upload.php
 
-<div style="text-align: center;">
-  <img src="/assets/grep8.webp" alt="mannaully
-" width="550">
-</div>
-
+![Open Lightbox](../assets/grep8.webp){ .glightbox .center width="500" }
 Now we can upload a reverse shell here but only jpg png so we have to do something about that Let’s first get a reserve shell and don’t forget to change your ip and port in the reverse shell.
 
 I got the reverse shell from [https://github.com/pentestmonkey/php-reverse-shell.git](https://github.com/pentestmonkey/php-reverse-shell.git)
 
 We can’t yet upload the file. we have to modify it by adding (ff d8 ff e0) at the beginning of the file hex in order to get valid magic bytes. I used cyber chef to do this.
 
-<div style="text-align: center;">
-  <img src="/assets/grep9.webp" alt="mannaully
-" width="550">
-</div>
-
+![Open Lightbox](../assets/grep9.webp){ .glightbox .center width="500" }
 Now we can upload this file you just need to export this file and it will be readen as a png file now we will upload this file.
 
-<div style="text-align: center;">
-  <img src="/assets/grep10.webp" alt="mannaully
-" width="550">
-</div>
 
-<div style="text-align: center;">
-  <img src="/assets/grep11.webp" alt="mannaully
-" width="550">
-</div>
+![Open Lightbox](../assets/grep10.webp){ .glightbox .center width="500" }
+
+
+![Open Lightbox](../assets/grep11.webp){ .glightbox .center width="500" }
 
 Now open /api/uploads.
 
-<div style="text-align: center;">
-  <img src="/assets/grep12.webp" alt="mannaully
-" width="550">
-</div>
+![Open Lightbox](../assets/grep12.webp){ .glightbox .center width="500" }
 
 Get your listener ready and open the file.
 
-<div style="text-align: center;">
-  <img src="/assets/grep13.webp" alt="mannaully
-" width="550">
-</div>
-
+![Open Lightbox](../assets/grep13.webp){ .glightbox .center width="500" }
 And we got in.
 
 Now go to /var/www /backup there you will find users.sql file.
 
-<div style="text-align: center;">
-  <img src="/assets/grep14.webp" alt="mannaully
-" width="550">
-</div>
-
+![Open Lightbox](../assets/grep14.webp){ .glightbox .center width="500" }
 And got the admin’s mail and also found a new subdomain.
 
-<div style="text-align: center;">
-  <img src="/assets/grep15.webp" alt="mannaully
-" width="550">
-</div>
 
+![Open Lightbox](../assets/grep15.webp){ .glightbox .center width="500" }
 Again I added this to my host fileI was unable to visit so I again did a Nmap scan this time scanning all ports using -p- flag and got a new port and added it as a port the page responded.
 
 And on visiting and putting in the admins’ mail.
 
-<div style="text-align: center;">
-  <img src="/assets/grep16.webp" alt="mannaully
-" width="550">
-</div>
+![Open Lightbox](../assets/grep16.webp){ .glightbox .center width="500" }
 
-<div style="text-align: center;">
-  <img src="/assets/grep17.webp" alt="mannaully
-" width="550">
-</div>
-
+![Open Lightbox](../assets/grep17.webp){ .glightbox .center width="500" }
 We got the final flag.
 
 Thank you for reading

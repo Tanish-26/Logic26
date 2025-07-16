@@ -1,9 +1,6 @@
 # HackTheBox Debugging Interface
 
-<div style="text-align: center;">
-  <img src="/assets/Debugging_Interface1.webp" alt="mannaully
-" width="600">
-</div>
+![Open Lightbox](../assets/Debugging_Interface1.webp){ .glightbox .center width="600" }
 
 ```
 Challenge type:- Hardware
@@ -22,10 +19,7 @@ Again I looked on the internet about the file and it can be easily unzipped usin
 
 So I did and got 2 more files.
 
-<div style="text-align: center;">
-  <img src="/assets/Debugging_Interface2.webp" alt="mannaully
-" width="600">
-</div>
+![Open Lightbox](../assets/Debugging_Interface2.webp){ .glightbox .center width="500" }
 
 ```
 meta.json and digital-0.bin
@@ -39,33 +33,23 @@ https://www.saleae.com/downloads/
 
 To analyse it also i had to look a lot into the documentation to understand and analyse every step was different and difficult to understand but i managed to get it.
 
-<div style="text-align: center;">
-  <img src="/assets/Debugging_Interface3.webp" alt="mannaully
-" width="600">
-</div>
+![Open Lightbox](../assets/Debugging_Interface3.webp){ .glightbox .center width="500" }
+
 
 I opened the .sal file and by using + magnify in and analyze.
 
 Now I analyzed the the patterns of the wave signal and found out that there is a repetitionin between-the-lines waves and it was different.
 
-<div style="text-align: center;">
-  <img src="/assets/Debugging_Interface4.webp" alt="mannaully
-" width="600">
-</div>
+![Open Lightbox](../assets/Debugging_Interface4.webp){ .glightbox .center width="500" }
 
 And in async serial changed the bit rate(Bits/s) to 31230.
 
-<div style="text-align: center;">
-  <img src="/assets/Debugging_Interface5.webp" alt="mannaully
-" width="600">
-</div>
+![Open Lightbox](../assets/Debugging_Interface5.webp){ .glightbox .center width="500" }
+
 
 And put data to command line.
 
-<div style="text-align: center;">
-  <img src="/assets/Debugging_Interface6.webp" alt="mannaully
-" width="600">
-</div>
+![Open Lightbox](../assets/Debugging_Interface6.webp){ .glightbox .center width="500" }
 
 And there we go the flag.
 

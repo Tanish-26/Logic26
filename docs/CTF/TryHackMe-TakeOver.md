@@ -1,9 +1,7 @@
 # TryHackMe TakeOver
 
-<div style="text-align: center;">
-  <img src="/assets/takeover1.webp" alt="mannaully
-" width="600">
-</div>
+![Open Lightbox](../assets/takeover1.webp){ .glightbox .center width="600" }
+
 ```
 TryhackMe Machine:- Takeover
 Machine Info:- 
@@ -53,18 +51,13 @@ scanned in 65.61 seconds
 
 So firstly added futurevera.thm to /etc/host and the IP.
 
-<div style="text-align: center;">
-  <img src="/assets/takeover2.webp" alt="mannaully
-" width="550">
-</div>
+![Open Lightbox](../assets/takeover2.webp){ .glightbox .center width="500" }
 
 And opened the URL.
 
-![Image](https://cdn-images-1.medium.com/max/800/1*Y7-Ijg285zoW5HjHVxqVhA.png)
-<div style="text-align: center;">
-  <img src="/assets/takeover3.webp" alt="mannaully
-" width="550">
-</div>
+
+![Open Lightbox](../assets/takeover3.webp){ .glightbox .center width="500" }
+
 
 And there was nothing on the web page it was a simple web pagealso, I started with subdomain enumeration using ffuf and found two subdomainsblog and support so I added them both to /etc/hosts.
 
@@ -94,17 +87,9 @@ Duration: [0:00:01] :: Errors: 0
 
 And again open the support.futurevera.thm and looked at the certificate i was able to see a DNS addressagain added it to /etc/hosts.
 
-![Image](https://cdn-images-1.medium.com/max/800/1*xhJXiOhhoPU4VZndh4fLGw.png)
-<div style="text-align: center;">
-  <img src="/assets/takeover4.webp" alt="mannaully
-" width="550">
-</div>
 
 Opened the URL and boom we got the flag.
 
-<div style="text-align: center;">
-  <img src="/assets/takerover5.webp" alt="mannaully
-" width="550">
-</div>
+![Open Lightbox](../assets/takeover5.webp){ .glightbox .center width="500" }
 
 Thank you for reading

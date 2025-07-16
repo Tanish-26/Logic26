@@ -1,9 +1,6 @@
 # TryHackMe Git Happens
 
-<div style="text-align: center;">
-  <img src="/assets/git-happens1.webp" alt="mannaully
-" width="600">
-</div>
+![Open Lightbox](../assets/git-happens1.webp){ .glightbox .center width="600" }
 
 ```
 TryhackMe Machine:- Git Happens
@@ -38,16 +35,10 @@ Now using the git log command to see oneline commets.
 git log --oneline --graph
 ```
 
-<div style="text-align: center;">
-  <img src="/assets/git-happens2.webp" alt="mannaully
-" width="600">
-</div>
+![Open Lightbox](../assets/git-happens3.webp){ .glightbox .center width="500" }
 
 You will see that HEAD 395e087 nothing significant was here now lets check the index.html and you will see the the password and the flag there use the admin password as flag.
 
-<div style="text-align: center;">
-  <img src="/assets/git-happens3.webp" alt="mannaully
-" width="600">
-</div>
+![Open Lightbox](../assets/git-happens3.webp){ .glightbox .center width="500" }
 
 Thank you for reading

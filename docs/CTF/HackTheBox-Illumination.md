@@ -1,9 +1,6 @@
 # HackTheBox Illumination
 
-<div style="text-align: center;">
-  <img src="/assets/Illumination1.webp" alt="mannaully
-" width="600">
-</div>
+![Open Lightbox](../assets/Illumination1.webp){ .glightbox .center width="600" }
 
 ```
 HTB-Challenges:- Forensics  
@@ -13,55 +10,38 @@ Challenge level:- Easy
 
 Downloaded the file and unzipped it.
 
-<div style="text-align: center;">
-  <img src="/assets/Illumination2.webp" alt="mannaully
-" width="550">
-</div>
+![Open Lightbox](../assets/Illumination2.webp){ .glightbox .center width="500" }
 
 And there were 3 files .git, bot.js and config.json I looked into the .git file and found a few more files.
 
-
-<div style="text-align: center;">
-  <img src="/assets/Illumination3.webp" alt="mannaully
-" width="550">
-</div>
+![Open Lightbox](../assets/Illumination3.webp){ .glightbox .center width="500" }
 
 Looked into the logs files and used git command to look into the logs.
 
 ```bash
 git logs
 ```
-<div style="text-align: center;">
-  <img src="/assets/Illumination4.webp" alt="mannaully
-" width="550">
-</div>
+![Open Lightbox](../assets/Illumination4.webp){ .glightbox .center width="500" }
+
 
 See carefully that author has removed a unique token lets look into this.
 
 ```bash
 git show 47241a47f62ada864ec74bd6dedc4d33f4374699
 ```
-<div style="text-align: center;">
-  <img src="/assets/Illumination5.webp" alt="mannaully
-" width="550">
-</div>
+![Open Lightbox](../assets/Illumination5.webp){ .glightbox .center width="500" }
 
 
 Now there is a token and a username both looks like a base64 encoding so   
 lets decode them first lets try with the username.
 
-<div style="text-align: center;">
-  <img src="/assets/Illumination6.webp" alt="mannaully
-" width="550">
-</div>
+![Open Lightbox](../assets/Illumination6.webp){ .glightbox .center width="500" }
+
 
 
 And nothing now again i tried with token
 
-<div style="text-align: center;">
-  <img src="/assets/Illumination7.webp" alt="mannaully
-" width="550">
-</div>
+![Open Lightbox](../assets/Illumination7.webp){ .glightbox .center width="500" }
 
 And got the flag
 

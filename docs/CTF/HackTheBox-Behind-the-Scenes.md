@@ -1,8 +1,6 @@
 # HackTheBox Behind the Scenes
 
-<div style="text-align: center;">
-  <img src="/assets/behind-the-scenes1.webp" alt="mannaully" width="600">
-</div>
+![Open Lightbox](../assets/behind-the-scenes1.webp){ .glightbox .center width="600" }
 
 ```
 HTB-Challenges:- Reversing 
@@ -17,39 +15,25 @@ Downloaded the file and unzipped it.
 
 And there were 6 files.
 
-<div style="text-align: center;">
-  <img src="/assets/behind-the-scenes2.webp" alt="mannaully
-" width="600">
-</div>
+![Open Lightbox](../assets/behind-the-scenes2.webp){ .glightbox .center width="500" }
+
 
 Checked the behindthe scenes file.
 
-<div style="text-align: center;">
-  <img src="/assets/behind-the-scenes3.webp" alt="mannaully
-" width="600">
-</div>
+![Open Lightbox](../assets/behind-the-scenes3.webp){ .glightbox .center width="500" }
 
 And it found to be a ELF 64-bit file which is baisclly a executable linux file,
 I checked it’s content using strings.
 
-<div style="text-align: center;">
-  <img src="/assets/behind-the-scenes4.webp" alt="mannaully
-" width="600">
-</div>
+![Open Lightbox](../assets/behind-the-scenes4.webp){ .glightbox .center width="500" }
 
 Now to analysing this file im using IDA64, Opened and started looking into the file contents.
 
-<div style="text-align: center;">
-  <img src="/assets/behind-the-scenes5.webp" alt="mannaully
-" width="600">
-</div>
+![Open Lightbox](../assets/behind-the-scenes5.webp){ .glightbox .center width="500" }
 
 In hex view-1 i found something it looked werid.
 
-<div style="text-align: center;">
-  <img src="/assets/behind-the-scenes6.webp" alt="mannaully
-" width="600">
-</div>
+![Open Lightbox](../assets/behind-the-scenes6.webp){ .glightbox .center width="500" }
 
 If you can observe it, this is formaing the flag itz._ ……
 

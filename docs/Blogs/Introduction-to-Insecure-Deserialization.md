@@ -5,10 +5,7 @@
 
 Insecure deserialization is when user-controllable data is deserialized by a website.
 
-<div style="text-align: center;">
-  <img src="/assets/id1.webp" alt="mannaully
-" width="500">
-</div>
+![Open Lightbox](../assets/id1.webp){ .glightbox .center width="500" }
 
 In order to understand the vulnerability we first need to understand how this work and what goes into the back end and how the process of serialization and unserialization works.
 
@@ -81,10 +78,8 @@ O: LENGHT\_OF\_NAME:"CLASS\_NAME":NUMBER\_OF\_PROPERTIES:{PROPERTIES}
 O:4"User”:2:{s:8"username”:s:4"jack”;s:6:”status”:s:9;”not admin”;}
 ```
 
-<div style="text-align: center;">
-  <img src="/assets/id2.webp" alt="mannaully
-" width="500">
-</div>
+![Open Lightbox](../assets/id2.webp){ .glightbox .center width="500" }
+
 
 ```bash
 basically, the total number of alphabets in a word is first put as a number after   
@@ -127,10 +122,7 @@ Here **$User\_data = unserialize($COOKIE[‘data’]);** the function uses the c
 
 The cookie data which is base64 encoded gets unserialized and gets executed given an example below.
 
-<div style="text-align: center;">
-  <img src="/assets/id3.webp" alt="mannaully
-" width="500">
-</div>
+![Open Lightbox](../assets/id3.webp){ .glightbox .center width="500" }
 
 Therefore we need to manipulate the cookie in order to achieve RCE using insecure deserialization now that we understand that we need to manipulate the cookie data, lets now see with an example how we will manipulate the cookie.
 

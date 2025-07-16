@@ -1,9 +1,7 @@
 # HackTheBox Canvas
 
-<div style="text-align: center;">
-  <img src="/assets/Canvas1.webp" alt="mannaully
-" width="600">
-</div>
+![Open Lightbox](../assets/Canvas1.webp){ .glightbox .center width="600" }
+
 ```
 HTB-Challenges:- Mics  
 Challenge Info:- Mics encryption based  
@@ -17,45 +15,34 @@ downloaded the zip file and unzipped.
 
 there were 4 files.
 
-<div style="text-align: center;">
-  <img src="/assets/Canvas2.webp" alt="mannaully
-" width="550">
-</div>
+
+![Open Lightbox](../assets/Canvas2.webp){ .glightbox .center width="500" }
+
 I opend index.html but found nothing.
 
 Just a simple login page when i enter admin:admin it gave a mock flag.
 
-<div style="text-align: center;">
-  <img src="/assets/Canvas3.webp" alt="mannaully
-" width="550">
-</div>
+![Open Lightbox](../assets/Canvas3.webp){ .glightbox .center width="500" }
 
-<div style="text-align: center;">
-  <img src="/assets/Canvas4.webp" alt="mannaully
-" width="550">
-</div>
+![Open Lightbox](../assets/Canvas4.webp){ .glightbox .center width="500" }
+
 I looked around and in /js found login.js and opend it.
 
-<div style="text-align: center;">
-  <img src="/assets/Canvas5.webp" alt="mannaully
-" width="550">
-</div>
+![Open Lightbox](../assets/Canvas5.webp){ .glightbox .center width="500" }
+
 So if you didn’t get it yet we need to Obfuscate js.
 
 ![](https://cdn-images-1.medium.com/max/800/1*YKnZyPm86n7556LlDvA2pg.png)
-<div style="text-align: center;">
-  <img src="/assets/Canvas6.webp" alt="mannaully
-" width="550">
-</div>
+
+![Open Lightbox](../assets/Canvas6.webp){ .glightbox .center width="500" }
+
 Now analyzing javascript code we understond how the code work  
 also found it stores the result in ASCII.
 
 now we just need to decode ASCII code to get to the flag.
 
 ![](https://cdn-images-1.medium.com/max/800/1*CPs1erNINMiBHAvF19vJmQ.png)
-<div style="text-align: center;">
-  <img src="/assets/Canvas7.webp" alt="mannaully
-" width="550">
-</div>
+
+![Open Lightbox](../assets/Canvas7.webp){ .glightbox .center width="500" }
 
 Thank you for reading

@@ -1,6 +1,8 @@
 
 # How I Found 2 Insecure Firebase Databases
 
+![Open Lightbox](../assets/firebase1.jpg){ .glightbox .center width="600" }
+
 A few weeks back, I was doing some bounty hunting on Android apps when I came across **two mobile applications** vulnerable to **Firebase enumeration**.
 
 ## What is Firebase?
@@ -15,9 +17,7 @@ These misconfigurations are commonly found in Android apps. Although the chances
 
 I felt… betrayed 😅    
 
-<div style="text-align: center;">
-  <img src="/assets/1_9irSLF5ztrsUTGHbhTSJow.gif" alt="My SVG Logo" width="400">
-</div>
+![Open Lightbox](../assets/1_9irSLF5ztrsUTGHbhTSJow.gif){ .glightbox .center width="500" }
 
 ---
 
@@ -70,9 +70,9 @@ adb shell pm list packages -f | grep <APK name>
 
 You’ll get the APK's full path (ignore `package:` prefix).  
 
-<div style="text-align: center;">
-  <img src="/assets/adb_shell.webp" alt="My SVG Logo" width="700">
-</div>
+
+![Open Lightbox](../assets/adb_shell.webp){ .glightbox .center width="700" }
+
 
 Now pull the APK:
 
@@ -110,9 +110,8 @@ You should see a Firebase URL that looks like:
 https://<project-id>.firebaseio.com
 ```
 
-<div style="text-align: center;">
-  <img src="/assets/firebase_link.webp" alt="My SVG Logo" width="700">
-</div>
+![Open Lightbox](../assets/firebase_link.webp){ .glightbox .center width="700" }
+
 ---
 
 ### 6. Check for Vulnerability
@@ -126,9 +125,9 @@ curl -X GET https://somefirebase-database.firebaseio.com/.json
 - If it returns **data or `null`**, it’s vulnerable ✅
 - If it returns **“Permission denied”**, it’s safe ❌
 
-<div style="text-align: center;">
-  <img src="/assets/permission_denied.webp" alt="My SVG Logo" width="700">
-</div>
+
+![Open Lightbox](../assets/permission_denied.webp){ .glightbox .center width="700" }
+
 
 ---
 
@@ -155,13 +154,13 @@ You should see something like:
   "dog": "bowbow"
 }
 ```
-<div style="text-align: center;">
-  <img src="/assets/result_firebase.webp" alt="My SVG Logo" width="700">
-</div>
 
-<div style="text-align: center;">
-  <img src="/assets/heheboy_firebase.gif" alt="My SVG Logo" width="500">
-</div>
+![Open Lightbox](../assets/result_firebase.webp){ .glightbox .center width="700" }
+
+
+
+![Open Lightbox](../assets/heheboy_firebase.gif){ .glightbox .center width="550" }
+
                                     Thank me later 😆
 
 ---
