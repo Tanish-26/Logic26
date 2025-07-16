@@ -3,6 +3,7 @@ site_url: https://tanish-26.github.io/Logic26/
 use_directory_urls: true
 
 repo_url: https://github.com/Tanish-26/Logic26/ 
+repo_name: Logic26
 
 
 nav:
