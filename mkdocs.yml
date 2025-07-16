@@ -2,6 +2,9 @@ site_name: Logic26
 site_url: https://tanish-26.github.io/Logic26/
 use_directory_urls: true
 
+repo_url: https://github.com/your_username/your_repo
+
+
 nav:
   - Home: index.md
  
