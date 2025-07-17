@@ -81,7 +81,7 @@ O:4"User”:2:{s:8"username”:s:4"jack”;s:6:”status”:s:9;”not admin”;
 ![Open Lightbox](../assets/id2.webp){ .glightbox .center width="500" }
 
 
-```bash
+```bash linenums="1" hl_lines="4-9"
 basically, the total number of alphabets in a word is first put as a number after   
 writing any reference for example s:6"sticks" s is the length of the string  
    
