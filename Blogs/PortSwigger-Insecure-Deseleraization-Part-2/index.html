@@ -1,0 +1,1366 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://tanish-26.github.io/Logic26/Blogs/PortSwigger-Insecure-Deseleraization-Part-2/">
+      
+      
+        <link rel="prev" href="../PortSwigger-Insecure-Deseleraization-Part-1/">
+      
+      
+        <link rel="next" href="../../CTF/Hackthebox_Photonlocakdown/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
+    
+    
+      
+        <title>PortSwigger Insecure Deseleraization Part 2 - Logic26</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#portswigger-insecure-deseleraization-part-2" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Logic26" class="md-header__button md-logo" aria-label="Logic26" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Logic26
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              PortSwigger Insecure Deseleraization Part 2
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Tanish-26/Logic26/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Tanish-26/Logic26/
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Logic26" class="md-nav__button md-logo" aria-label="Logic26" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Logic26
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Tanish-26/Logic26/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Tanish-26/Logic26/
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Blogs
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Blogs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../insecure_firebase_blog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hunting for Firebase Enums in Android Application
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../EXPLOIT_SECURITY_IoT_CTF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Exploit Security IOT CTF
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Introduction-to-Insecure-Deserialization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction to Insecure Deserilazation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PortSwigger-Insecure-Deseleraization-Part-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PortSwigger Insecure Deseleraization Part 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    PortSwigger Insecure Deseleraization Part 2
+    
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    CTF Writeups
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            CTF Writeups
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    HackTheBox
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            HackTheBox
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CTF/Hackthebox_Photonlocakdown/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Photon Lockdown
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CTF/Hackthebox_The_Needle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Needle
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CTF/HackTheBox-Behind-the-Scenes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Behind The Scenes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CTF/HackTheBox-Cat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cat
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CTF/HackTheBox-Debugging-Interface/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Debbing Interface
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CTF/HackTheBox-Jscalc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Jscalc
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CTF/HackTheBox-RFlag/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RFlag
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CTF/HackTheBox-Signals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Signals
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CTF/HackTheBox-Topology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Topology
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CTF/HackTheBox-Toxic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Toxic
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CTF/HackTheBox-LoveTok/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LoveTok
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CTF/HackTheBox-Analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Analytics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CTF/HackTheBox-Weather-App/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Weather App
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CTF/HackTheBox-M0rsarchive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    M0rsarchive
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CTF/HackTheBox-RenderQuest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RenderQuest
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CTF/HackTheBox-Illumination/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Illumination
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CTF/HackTheBox-Canvas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Canva
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Tryhackme
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Tryhackme
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CTF/TryHackMe-Bounty-Hunter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Bounty-Hunter
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CTF/TryHackMe-Brooklyn-Nine-Nine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Brooklyn-Nine-Nine
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CTF/TryHackMe-Committed/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Committed
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CTF/TryHackMe-Git-Happens/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git-Happens
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CTF/TryHackMe-Grep/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Grep
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CTF/TryHackMe-HeartBleed/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HeartBleed
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CTF/TryHackMe-Pickle-Rick/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pickle Rick
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CTF/TryHackMe-TakeOver/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    TakeOver
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CTF/TryHackMe-TomGhost/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    TomGhost
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="portswigger-insecure-deseleraization-part-2">PortSwigger Insecure Deseleraization Part 2</h1>
+<p><a href="https://portswigger.net/web-security/deserialization/exploiting/lab-deserialization-exploiting-java-deserialization-with-apache-commons" title="https://portswigger.net/web-security/deserialization/exploiting/lab-deserialization-exploiting-java-deserialization-with-apache-commons"><strong>Lab: Exploiting Java deserialization with Apache Commons | Web Security Academy</strong><br />
+<em>This lab uses a serialization-based session mechanism and loads the Apache Commons Collections library. Although you…</em>portswigger.net</a></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Lab:- Exploiting Java with Apache Commons 
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Lab type:- PRACTITIONER
+</span></code></pre></div>
+<p>This lab uses a serialization-based session mechanism and loads the Apache Commons Collections library. Although you don’t have source code access, you can still exploit this lab using pre-built gadget chains.</p>
+<p>To solve the lab, use a third-party tool to generate a malicious serialized object containing a remote code execution payload. Then, pass this object into the website to delete the <code>morale.txt</code> file from Carlos's home directory.</p>
+<p>You can log in to your own account using the following credentials: <code>wiener:peter</code>.</p>
+<hr />
+<p>This lab will be a little different and uses a tool called <strong>Ysoserial</strong>, we will install the tool first and see how to use it along with errors you might encounter while using the tool, also installing appropriate dependencies for it to work perfectly</p>
+<p>Also, note that Java 8 is not found in the kali linux repo so you will have to install it manually using the given method</p>
+<p>First Install java8, you might get confused about which particular version to use so I have included the download link for it, you might have to signup for into Oracle site in order to download</p>
+<p><a href="https://www.oracle.com/java/technologies/javase/javase8u211-later-archive-downloads.html#license-lightbox">Java Archive Downloads — Java SE 8u211 and later</a></p>
+<p>Into the terminal, you can check which version of Java you are currently using</p>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>java<span class="w"> </span>--version
+</span></code></pre></div>
+now cd into</p>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">cd</span><span class="w"> </span>/usr/lib/jvm
+</span></code></pre></div>
+if there is no package of Java installed in your system you can manually create this directory</p>
+<p>now in the /usr/lib/jvm unzip the downloaded package of java8</p>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo<span class="w"> </span>tar<span class="w"> </span>-xvzf<span class="w"> </span>/home/logic/jdk-8u371-linux-x64.tar.gz
+</span></code></pre></div>
+now cd into jdk1.8.0_371/ and check the full path of the directory which should be something like this</p>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>/usr/lib/jvm/jdk1.8.0<span class="se">\_</span><span class="m">371</span>
+</span></code></pre></div>
+now using any text editor you have to edit the /etc/environment file i am using vi here</p>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sudo<span class="w"> </span>vi<span class="w"> </span>/etc/environment
+</span></code></pre></div>
+and add the following path</p>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>/usr/lib/jvm/jdk1.8.0<span class="se">\_</span><span class="m">371</span>/bin:usr/lib/jvm/jdk1.8.0<span class="se">\_</span><span class="m">371</span>/db/bin:usr/lib/jvm/jdk1.8.0<span class="se">\_</span><span class="m">371</span>/jre/bin
+</span></code></pre></div>
+Run the following command one by one</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>sudo<span class="w"> </span>update-alternatives<span class="w"> </span>-<span class="w"> </span>install<span class="w"> </span><span class="s2">&quot;/usr/bin/java&quot;</span><span class="w"> </span><span class="s2">&quot;java&quot;</span><span class="w"> </span><span class="s2">&quot;/usr/lib/jvm/jdk1.8.0\_371/bin/java&quot;</span><span class="w"> </span><span class="m">0</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>sudo<span class="w"> </span>update-alternatives<span class="w"> </span>-<span class="w"> </span>install<span class="w"> </span><span class="s2">&quot;/usr/bin/java&quot;</span><span class="w"> </span><span class="s2">&quot;java&quot;</span><span class="w"> </span><span class="s2">&quot;/usr/lib/jvm/jdk1.8.0\_371/bin/javac&quot;</span><span class="w"> </span><span class="m">0</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>sudo<span class="w"> </span>update-alternatives<span class="w"> </span>-<span class="w"> </span><span class="nb">set</span><span class="w"> </span>java<span class="w"> </span>/usr/lib/jvm/jdk1.8.0<span class="se">\_</span><span class="m">371</span>/bin/javasudo<span class="w"> </span>update-alternatives<span class="w"> </span>-<span class="w"> </span><span class="nb">set</span><span class="w"> </span>java<span class="w"> </span>/usr/lib/jvm/jdk1.8.0<span class="se">\_</span><span class="m">371</span>/bin/java
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>sudo<span class="w"> </span>update-alternatives<span class="w"> </span>-<span class="w"> </span><span class="nb">set</span><span class="w"> </span>java<span class="w"> </span>/usr/lib/jvm/jdk1.8.0<span class="se">\_</span><span class="m">371</span>/bin/javac
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>sudo<span class="w"> </span>update-alternatives<span class="w"> </span>-<span class="w"> </span>config<span class="w"> </span>java
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>java<span class="w"> </span>-version
+</span></code></pre></div>
+<p><a class="glightbox" href="../../assets/pslid11.webp" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Open Lightbox" class="glightbox center" src="../../assets/pslid11.webp" width="500" /></a></p>
+<p>It should be set to java8 if you used the command above and you can choose between java17 and java8 in my case, you might be having different versions but you should set it to java8 and java8c</p>
+<p>now install Ysoserial using the given link:-</p>
+<p><a href="https://github.com/frohoff/ysoserial/releases/latest/download/ysoserial-all.jar">https://github.com/frohoff/ysoserial/releases/latest/download/ysoserial-all.jar</a></p>
+<p>Now we are good to go let’s start the lab</p>
+<p><a class="glightbox" href="../../assets/pslid12.webp" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Open Lightbox" class="glightbox center" src="../../assets/pslid12.webp" width="500" /></a></p>
+<p>after the lab starts open burp suite along with it and go to the login page and log in with the given credentials weiner:peter</p>
+<p><a class="glightbox" href="../../assets/pslid3.webp" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Open Lightbox" class="glightbox center" src="../../assets/pslid3.webp" width="500" /></a></p>
+<p>now open the burp suite proxy tab and in HTTP History</p>
+<p><a class="glightbox" href="../../assets/pslid14.webp" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Open Lightbox" class="glightbox center" src="../../assets/pslid14.webp" width="500" /></a></p>
+<p>now using ysoserial tool we will generate a payload</p>
+<p><a class="glightbox" href="../../assets/pslid15.webp" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Open Lightbox" class="glightbox center" src="../../assets/pslid15.webp" width="500" /></a></p>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>java<span class="w"> </span>-jar<span class="w"> </span>ysoserial-all.jar<span class="w"> </span>CommonsCollections4<span class="w"> </span><span class="s1">&#39;rm /home/carlos/morale.txt&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>base<span class="w">  </span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="m">64</span>
+</span></code></pre></div>
+now turn on the intercept tab and click on the home tab and send that request to the repeater tab</p>
+<p><a class="glightbox" href="../../assets/pslid16.webp" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Open Lightbox" class="glightbox center" src="../../assets/pslid16.webp" width="500" /></a></p>
+<p>now copy the cookie generated by ysoserial tool and replace it with the cookie in the repeater tab</p>
+<p>also, encode the cookie with URL encoding</p>
+<p>and there you go the lab is solved</p>
+<p><a class="glightbox" href="../../assets/pslid17.webp" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Open Lightbox" class="glightbox center" src="../../assets/pslid17.webp" width="500" /></a></p>
+<p>Thanks for reading</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../PortSwigger-Insecure-Deseleraization-Part-1/" class="md-footer__link md-footer__link--prev" aria-label="Previous: PortSwigger Insecure Deseleraization Part 1">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                PortSwigger Insecure Deseleraization Part 1
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../CTF/Hackthebox_Photonlocakdown/" class="md-footer__link md-footer__link--next" aria-label="Next: Photon Lockdown">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Photon Lockdown
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.footer"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>
